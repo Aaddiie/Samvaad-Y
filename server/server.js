@@ -16,7 +16,11 @@ const server = http.createServer(app);
 export const io = new Server(server, {
     cors: {origin: '*'}
 })
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: ["http://localhost:5173",
+        "https://samvaad-y.vercel.app"
+        ],
+        credentials: true
+}));
 
 //Store online users
 export const userSocketMap = {};
