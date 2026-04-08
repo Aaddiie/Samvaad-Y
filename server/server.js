@@ -17,7 +17,6 @@ export const io = new Server(server, {
     cors: {origin: '*'}
 })
 app.use(cors({ origin: ["http://localhost:5173",
-        "https://samvaad-y.vercel.app"
         ],
         credentials: false
 }));
@@ -57,7 +56,10 @@ app.use("/api/messages", messageRouter);
 await connectDB();
 
 
-
+if(process.env.NODE_ENV === "production"){
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, ()=> console.log("Server is running on port: " + PORT));
+}
+
+export default server;
