@@ -17,6 +17,7 @@ export const io = new Server(server, {
     cors: {origin: '*'}
 })
 app.use(cors({ origin: ["http://localhost:5173",
+        "https://samvaad-y.vercel.app"
         ],
         credentials: false
 }));
