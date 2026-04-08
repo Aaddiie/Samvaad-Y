@@ -19,7 +19,7 @@ export const io = new Server(server, {
 app.use(cors({ origin: ["http://localhost:5173",
         "https://samvaad-y.vercel.app"
         ],
-        credentials: true
+        credentials: false
 }));
 
 //Store online users
