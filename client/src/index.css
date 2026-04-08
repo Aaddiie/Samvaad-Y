@@ -2,9 +2,20 @@
 
 @import "tailwindcss";
 
-*{
-  font-family: "Outfit", sans-serif;
+:root {
+  color-scheme: light;
 }
-::-webkit-scrollbar{
+
+* {
+  font-family: "Outfit", sans-serif;
+  color: #111827;
+}
+
+body {
+  background: #f8fafc;
+  color: #111827;
+}
+
+::-webkit-scrollbar {
   display: none;
 }
