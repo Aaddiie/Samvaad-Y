@@ -43,7 +43,6 @@ io.on("connection", (socket)=>{
 
 //Middleware Setup
 app.use(express.json({limit: "4mb"}));
-app.use(cors());
 
 
 
