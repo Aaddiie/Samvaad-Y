@@ -36,7 +36,16 @@ io.on("connection", (socket)=>{
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
     socket.on("disconnect", ()=>{
         console.log("User Disconnected", userId);
-        delete userSocketMap[userId];
+        if (userId && userSocketMap[userId]) {
+            userSocketMap[userId] = userSocketMap[userId].filter(
+                (id) => id !== socket.id
+            );
+
+            // remove user only if no sockets left
+            if (userSocketMap[userId].length === 0) {
+                delete userSocketMap[userId];
+            }
+        }
         io.emit("getOnlineUsers", Object.keys(userSocketMap));
     })
 })
